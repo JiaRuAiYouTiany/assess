@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ljnewmap.modules.policy.dao.PolicyDao">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+	<resultMap type="com.ljnewmap.modules.policy.entity.PolicyEntity" id="policyMap">
+		<result property="id" column="id"/>
+		<result property="type" column="type"/>
+		<result property="name" column="name"/>
+		<result property="regionLevel" column="region_level"/>
+		<result property="industry" column="industry"/>
+		<result property="region" column="region"/>
+		<result property="publishDate" column="publish_date"/>
+		<result property="uploadDate" column="upload_date"/>
+		<result property="secretLevel" column="secret_level"/>
+		<result property="effective" column="effective"/>
+	</resultMap>
+
+<!--    &lt;!&ndash; 根据key，更新value &ndash;&gt;-->
+<!--    <update id="updateValueByKey" parameterType="map">-->
+<!--		update sys_config set param_value = #{paramValue} where param_key = #{paramKey}-->
+<!--	</update>-->
+
+<!--    &lt;!&ndash; 根据key，查询value &ndash;&gt;-->
+<!--    <select id="queryByKey" parameterType="string" resultType="io.renren.modules.sys.entity.SysConfigEntity">-->
+<!--		select * from sys_config where param_key = #{paramKey}-->
+<!--	</select>-->
+
+</mapper>

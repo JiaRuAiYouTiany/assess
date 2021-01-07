@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ljnewmap.modules.assess.dao.HrmSubCompanyDao">
+
+    <!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="com.ljnewmap.modules.assess.entity.HrmSubCompanyEntity" id="hrmsubcompanyMap">
+        <result property="id" column="id"/>
+        <result property="subcompanyname" column="subcompanyname"/>
+        <result property="subcompanydesc" column="subcompanydesc"/>
+        <result property="companyid" column="companyid"/>
+        <result property="supsubcomid" column="supsubcomid"/>
+        <result property="url" column="url"/>
+        <result property="showorder" column="showorder"/>
+        <result property="canceled" column="canceled"/>
+        <result property="subcompanycode" column="subcompanycode"/>
+        <result property="outkey" column="outkey"/>
+        <result property="budgetAtuoMoveOrder" column="budgetAtuoMoveOrder" />
+        <result property="ecology_pinyin_search" column="ecology_pinyin_search" />
+        <result property="limitUsers" column="limitUsers" />
+        <result property="tlevel" column="tlevel" />
+    </resultMap>
+
+    <select id="getTableData" resultType="com.ljnewmap.modules.assess.entity.HrmSubCompanyEntity">
+        SELECT  id,subcompanyname,subcompanydesc,companyid,supsubcomid,url,showorder,canceled,subcompanycode,
+        outkey,budgetAtuoMoveOrder,ecology_pinyin_search,limitUsers,tlevel  FROM hrmsubcompany
+    </select>
+
+</mapper>

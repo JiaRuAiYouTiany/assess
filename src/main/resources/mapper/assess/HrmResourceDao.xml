@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ljnewmap.modules.assess.dao.HrmResourceDao">
+    <resultMap type="com.ljnewmap.modules.assess.entity.HrmResourceEntity" id="hrmresourceMap">
+        <result property="id" column="id"/>
+        <result property="lastname" column="lastname"/>
+        <result property="seclevel" column="seclevel"/>
+        <result property="departmentid" column="departmentid"/>
+    </resultMap>
+    <select id="getResourceById" resultType="com.ljnewmap.modules.assess.entity.HrmResourceEntity">
+        SELECT  id,lastname,seclevel,departmentid FROM hrmresource where id = #{id}
+    </select>
+
+    <select id="getDepManagerByDepId" resultType="com.ljnewmap.modules.assess.entity.HrmResourceEntity">
+        select id, lastname, seclevel, departmentid from HrmResource where departmentid = #{depId} and
+        seclevel = (select max(seclevel) from hrmresource where DEPARTMENTID = #{depId} and (enddate = '' or enddate is null))
+        and (enddate = '' or enddate is null)
+    </select>
+
+    <select id="getDepMembers" resultType="com.ljnewmap.modules.assess.entity.HrmResourceEntity">
+        select id, lastname, seclevel, departmentid from hrmresource where departmentid = #{depId}
+        and seclevel != (select max(seclevel) from hrmresource where DEPARTMENTID = #{depId} and (enddate = '' or enddate is null))
+        and (enddate = '' or enddate is null)
+    </select>
+
+</mapper>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ljnewmap.modules.assess.dao.HrmAssessDao">
+    <resultMap type="com.ljnewmap.modules.assess.entity.HrmAssessEntity" id="hrmassessMap">
+        <result property="assessid" column="assessid"/>
+        <result property="result" column="result"/>
+    </resultMap>
+    <select id="get" resultType="com.ljnewmap.modules.assess.entity.HrmAssessEntity">
+        SELECT  assessid,result FROM hrmassess where assessid = #{id}
+    </select>
+</mapper>
